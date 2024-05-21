@@ -1,0 +1,15 @@
+CREATE TABLE TaxiTrips (
+    id INT IDENTITY(1,1) PRIMARY KEY,
+    tpep_pickup_datetime DATETIME NOT NULL,
+    tpep_dropoff_datetime DATETIME NOT NULL,
+    passenger_count INT NULL,
+    trip_distance DECIMAL(6, 2) NOT NULL,
+    store_and_fwd_flag BIT NULL,
+    PULocationID INT NOT NULL,
+    DOLocationID INT NOT NULL,
+    fare_amount DECIMAL(6, 2) NOT NULL,
+    tip_amount DECIMAL(6, 2) NOT NULL
+);
+CREATE INDEX IX_PULocationId_tip_amount ON TaxiTrips (PULocationId, tip_amount);
+CREATE INDEX IX_trip_distance ON TaxiTrips (trip_distance);
+CREATE INDEX IX_PULocationId ON TaxiTrips (PULocationId);
