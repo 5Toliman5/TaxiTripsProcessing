@@ -138,7 +138,7 @@ namespace WorkerApplication.Workers
         private string MakeNameUnique(string filename)
         {
             var parts = filename.Split('.');
-            return parts[0] + DateTime.UtcNow.ToString("ddMMyyyyhhmmss") + parts[1];
+            return parts[0] + DateTime.UtcNow.ToString("ddMMyyyyhhmmss") + "." + parts[1];
         }
     }
 }
